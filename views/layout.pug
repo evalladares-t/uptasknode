@@ -9,7 +9,7 @@ html(lang="es")
         link(rel="stylesheet" , href="/css/normalize.css")
     body
         header.barra
-            h1 UpTask - Administrador de proyectos
+            h1 UpTask - Administrador de proyectos #{years}
             a(href="#") Cerrar sesión
 
         main.contenedor
@@ -23,10 +23,8 @@ html(lang="es")
                         if(proyectos.length)
                             each proyecto in proyectos
                                 li
-                                    a(href=`${proyecto.url}`)=proyecto.name
+                                    a(href=`/proyectos/${proyecto.url}`)=proyecto.name
             block contenido
+            //pre=vardump(proyectos)
 
-
-
-
-            pre=vardum(proyectos)
+        script(src="/dist/bundle.js")

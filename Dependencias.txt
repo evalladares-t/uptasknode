@@ -1,1 +1,3 @@
 pug express nodemon mysql2 sequelize mariadb express-validator slug shortid
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+concurrently axios

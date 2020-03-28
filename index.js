@@ -23,7 +23,9 @@ app.set('view engine','pug');
 
 //Pasar  var dump
 app.use((req,res,next)=>{
-    res.locals.vardum = helpers.vardum;
+    res.locals.vardump = helpers.vardump;
+    const fecha = new Date();
+    res.locals.years = fecha.getFullYear();
     next();
 });
 

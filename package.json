@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon ./index.js",
+    "start": "concurrently \"npm run dev \" \"npm run watch \" ",
+    "watch": "webpack --w --mode development"
   },
   "author": "Valladares Tavera, Edward J <evalladarestav@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
+    "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "mariadb": "^2.3.1",
@@ -17,9 +21,15 @@
     "pug": "^2.0.4",
     "sequelize": "^5.21.5",
     "shortid": "^2.2.15",
-    "slug": "^2.1.1"
+    "slug": "^2.1.1",
+    "sweetalert2": "^9.10.7"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

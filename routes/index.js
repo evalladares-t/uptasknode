@@ -8,6 +8,18 @@ module.exports = function(){
     router.get('/nuevo-proyecto',proyectoController.formularioProyecto);
     router.post('/nuevo-proyecto',
         body('name').not().isEmpty().trim().escape(),
-        proyectoController.nuevoProyecto);
+        proyectoController.nuevoProyecto
+    );
+
+    //Listar los diferentes proyectos
+    router.get('/proyectos/:url',proyectoController.proyectoPorUrl);
+
+    //Actualizar proyecto
+    router.get('/proyecto/editar/:id',proyectoController.formularioEditar);
+    router.post('/nuevo-proyecto/:id',
+        body('name').not().isEmpty().trim().escape(),
+        proyectoController.actualizarProyecto
+    );
+    router.delete('/proyectos/:url',proyectoController.eliminarProyecto);
     return router;
 };
