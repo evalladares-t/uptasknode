@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const proyectoController = require('../controllers/proyect.controller');
+const tareasController = require('../controllers/tareas.controller');
 const router = Router();
 const { body} = require('express-validator/check');
 
@@ -21,5 +22,13 @@ module.exports = function(){
         proyectoController.actualizarProyecto
     );
     router.delete('/proyectos/:url',proyectoController.eliminarProyecto);
+
+    //Rutas para las tareas:
+    router.post('/proyectos/:url',tareasController.agregarTarea);
+    //Actualiar tarea
+    router.patch('/tareas/:id',tareasController.cambiarEstadoTarea);
+    //Eliminar tarea
+    router.delete('/tareas/:id',tareasController.eliminarTarea);
+
     return router;
 };

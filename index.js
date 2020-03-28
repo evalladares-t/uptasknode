@@ -8,6 +8,7 @@ const helpers = require('./helpers');
 
 //Importar modelos
 require('./models/Proyectos');
+require('./models/Tareas');
 db.sync()
     .then(() => console.log("Conectado a la bd"))
     .catch((error) => console.log("Error en la conexión a la bd: "+ error));
