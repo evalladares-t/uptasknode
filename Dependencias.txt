@@ -1,1 +1,1 @@
-pug express nodemon
+pug express nodemon mysql2 sequelize mariadb express-validator slug shortid
