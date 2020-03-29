@@ -40,8 +40,13 @@ module.exports = function(){
     router.post('/crear-cuenta',userController.Crearcuenta);
     router.get('/iniciar-sesion',userController.formIniciarSesion);
     router.post('/iniciar-sesion',authController.autenticarUsuario);
-
     router.get('/cerrar-sesion',authController.cerrarSesion);
+
+    //Rutas para reestablecer la contraseña
+    router.get('/restablecer',userController.formRestablecerPass);
+    router.post('/restablecer',authController.enviarToken);
+    router.get('/restablecer/:token',authController.validarToken);
+    router.post('/restablecer/:token',authController.actualizarPassword);
 
 
     return router;
