@@ -30,7 +30,7 @@ if(btnEliminar){
                         );
                         setTimeout(()=>{
                             window.location.href = '/'
-                        },3000);
+                        },2000);
                     })
                     .catch(()=>{
                         Swal.fire({

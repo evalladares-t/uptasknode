@@ -46,12 +46,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Pasar  var dump
+//Nuestro propio middleware
 app.use((req,res,next)=>{
     res.locals.vardump = helpers.vardump;
     res.locals.mensajes = req.flash();
     const fecha = new Date();
     res.locals.years = fecha.getFullYear();
+    res.locals.usuario = {...req.user} || null;
     next();
 });
 
