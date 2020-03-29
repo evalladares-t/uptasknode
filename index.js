@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
+const passport = require('./config/passport');
 const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('./config/db');
@@ -42,10 +43,13 @@ app.use(session({
     saveUninitialized:false
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Pasar  var dump
 app.use((req,res,next)=>{
     res.locals.vardump = helpers.vardump;
-    res.locals.mensajes = req.flash;
+    res.locals.mensajes = req.flash();
     const fecha = new Date();
     res.locals.years = fecha.getFullYear();
     next();
