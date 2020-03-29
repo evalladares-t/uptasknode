@@ -1,6 +1,7 @@
 const {Router} = require('express');
 const proyectoController = require('../controllers/proyect.controller');
 const tareasController = require('../controllers/tareas.controller');
+const userController = require('../controllers/user.controller');
 const router = Router();
 const { body} = require('express-validator/check');
 
@@ -30,5 +31,8 @@ module.exports = function(){
     //Eliminar tarea
     router.delete('/tareas/:id',tareasController.eliminarTarea);
 
+    //Rutas para el usuario
+    router.get('/crear-cuenta',userController.formCrearcuenta);
+    router.post('/crear-cuenta',userController.Crearcuenta);
     return router;
 };
